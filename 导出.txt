@@ -1,0 +1,8 @@
+response.setCharacterEncoding("utf-8");
+response.setContentType("application/octet-stream;charset=utf-8");
+
+String fileName = new String("需求审批单需求物料明细表".getBytes("gbk"), "iso8859-1");
+response.setHeader("Content-Disposition", "attachment;filename=" + fileName + ".xls");
+OutputStream fout = response.getOutputStream();
+book.write(fout);
+fout.close();
